@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yimilan.kedaibiao.dao.api.BannerDao" >
+  <resultMap id="BaseResultMap" type="com.yimilan.kedaibiao.domain.entity.api.Banner" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="PicUrl" property="picurl" jdbcType="VARCHAR" />
+    <result column="Href" property="href" jdbcType="VARCHAR" />
+    <result column="Title" property="title" jdbcType="VARCHAR" />
+    <result column="Description" property="description" jdbcType="VARCHAR" />
+    <result column="CreateTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="ValidTime" property="validtime" jdbcType="INTEGER" />
+    <result column="IsDelete" property="isdelete" jdbcType="BIT" />
+    <result column="RoleType" property="roletype" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, PicUrl, Href, Title, Description, CreateTime, ValidTime, IsDelete, RoleType
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from base_banner
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from base_banner
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.yimilan.kedaibiao.domain.entity.api.Banner" >
+    insert into base_banner (id, PicUrl, Href, 
+      Title, Description, CreateTime, 
+      ValidTime, IsDelete, RoleType
+      )
+    values (#{id,jdbcType=BIGINT}, #{picurl,jdbcType=VARCHAR}, #{href,jdbcType=VARCHAR}, 
+      #{title,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{validtime,jdbcType=INTEGER}, #{isdelete,jdbcType=BIT}, #{roletype,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yimilan.kedaibiao.domain.entity.api.Banner" >
+    insert into base_banner
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="picurl != null" >
+        PicUrl,
+      </if>
+      <if test="href != null" >
+        Href,
+      </if>
+      <if test="title != null" >
+        Title,
+      </if>
+      <if test="description != null" >
+        Description,
+      </if>
+      <if test="createtime != null" >
+        CreateTime,
+      </if>
+      <if test="validtime != null" >
+        ValidTime,
+      </if>
+      <if test="isdelete != null" >
+        IsDelete,
+      </if>
+      <if test="roletype != null" >
+        RoleType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="picurl != null" >
+        #{picurl,jdbcType=VARCHAR},
+      </if>
+      <if test="href != null" >
+        #{href,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validtime != null" >
+        #{validtime,jdbcType=INTEGER},
+      </if>
+      <if test="isdelete != null" >
+        #{isdelete,jdbcType=BIT},
+      </if>
+      <if test="roletype != null" >
+        #{roletype,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yimilan.kedaibiao.domain.entity.api.Banner" >
+    update base_banner
+    <set >
+      <if test="picurl != null" >
+        PicUrl = #{picurl,jdbcType=VARCHAR},
+      </if>
+      <if test="href != null" >
+        Href = #{href,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        Title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        Description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="validtime != null" >
+        ValidTime = #{validtime,jdbcType=INTEGER},
+      </if>
+      <if test="isdelete != null" >
+        IsDelete = #{isdelete,jdbcType=BIT},
+      </if>
+      <if test="roletype != null" >
+        RoleType = #{roletype,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yimilan.kedaibiao.domain.entity.api.Banner" >
+    update base_banner
+    set PicUrl = #{picurl,jdbcType=VARCHAR},
+      Href = #{href,jdbcType=VARCHAR},
+      Title = #{title,jdbcType=VARCHAR},
+      Description = #{description,jdbcType=VARCHAR},
+      CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      ValidTime = #{validtime,jdbcType=INTEGER},
+      IsDelete = #{isdelete,jdbcType=BIT},
+      RoleType = #{roletype,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

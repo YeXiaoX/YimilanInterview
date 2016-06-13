@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="com-yimilan-kedaibiao-pc:war">
+    <output-path>$PROJECT_DIR$/com-yimilan-kedaibiao-pc/target</output-path>
+    <root id="archive" name="com-yimilan-kedaibiao-pc.war">
+      <element id="artifact" artifact-name="com-yimilan-kedaibiao-pc:war exploded" />
+    </root>
+  </artifact>
+</component>
